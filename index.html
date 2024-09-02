@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Location in Latitude & Longitude</title>
+</head>
+<body>
+    <h1>Hi, Welcome to the GeoLocation Finder.</h1>
+    <button class="btn-geo">Get GeoLocation</button>
+    
+    <script>
+
+        const buttons = document.querySelector(".btn-geo");
+        function getLocation(){
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showLcocation)
+            } else{
+                alert("Your Browser Doesn,t Supprot GeoLoaction Finder")
+            }
+        }
+
+        function showLcocation(pos){
+          alert("Your Current Location is -->>> Latitude:::" +  pos.coords.latitude + "Longitude:::" + pos.coords.longitude  )
+        }
+
+        buttons.addEventListener('click', function(e){
+            getLocation()
+        })
+    </script>
+</body>
+</html>
